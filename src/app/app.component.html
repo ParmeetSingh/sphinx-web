@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+    <!-- <ng-container *ngIf="history !==null && history.length!==0">
+        <i style="  cursor: pointer;" class="material-icons" (click)="historyBtn()">keyboard_backspace</i>&nbsp;&nbsp;
+    </ng-container> -->
+    <span>Dictionary</span>
+    <div>
+        <button mat-button (click)="shuffle()"> <i class="material-icons">shuffle</i>  </button>
+    </div>
+    <div class="container">
+        <app-search-bar (searchEmit)="searchResults($event)"></app-search-bar>
+    </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-toolbar color="primary" style="height:0.2em">
+        <mat-toolbar-row>
+        <div *ngIf="user==null">
+            <button mat-button (click)="signIn()" ><span class="hyp-links">Sign in</span></button>
+        </div>
+        <div *ngIf="user!=null">
+                <button mat-button (click)="signOut()" ><span class="hyp-links">Sign Out</span></button>
+        </div>
+        <div>
+                <button mat-button routerLink="/history" routerLinkActive="active"><span class="hyp-links">History</span></button>
+        </div>
+        <div>
+                <button mat-button routerLink="/bookmarks" routerLink="/bookmarks" routerLinkActive="active"><span class="hyp-links">Bookmarks</span></button>
+        </div>
+        <div>
+            <button mat-button onclick="window.open('https://www.linkedin.com/in/parmeet-singh-1b884011a/')" id="myButton"><span class="hyp-links">Contact Us</span></button>
+        </div>
+        </mat-toolbar-row>
+</mat-toolbar>
+
+
+<router-outlet></router-outlet>

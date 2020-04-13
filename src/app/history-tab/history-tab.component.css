@@ -1,0 +1,23 @@
+.mat-card:not([class*=mat-elevation-z]) {
+    margin-bottom: 10px;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,1), 
+                0 1px 1px 0 rgba(0,0,0,1), 
+                0 1px 3px 0 rgba(0,0,0,1);
+}
+/* .example-card{
+    padding-top: 10px
+} */
+
+.material-icons:hover {
+    color: white;
+}
+
+.material-icons::after{
+    color: white;
+    text-decoration: none;
+}
+
+span.hyp-links{
+    color:white;
+    text-decoration: none;
+}

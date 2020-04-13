@@ -1,0 +1,12 @@
+<form class="example-form">
+    <!-- <i class="material-icons">search</i> -->
+    <mat-form-field  floatLabel=never>
+        <input type="text" placeholder="Search" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" [ngModel]="searchText"
+                    (focus)="checkPlaceHolder()" (blur)="checkPlaceHolder()">
+        <mat-autocomplete #auto="matAutocomplete">
+        <mat-option  *ngFor="let option of filteredOptions" [value]="option" (onSelectionChange)="callSomeFunction(option)">
+            {{option}}
+        </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</form>

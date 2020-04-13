@@ -1,0 +1,40 @@
+
+<ul>
+    <div class="inline-class">
+        <div><h3 >{{word}}</h3></div>
+        <div>
+                <input type="checkbox" name="checkboxG2" id="checkboxG2" class="css-checkbox" [(ngModel)]="word_favorite"
+                                (change)="updateFavoriteWord()"/>
+                <label for="checkboxG2" class="css-label"></label>
+        </div>
+    </div>
+    <mat-card class="example-card" *ngFor="let result of results">Meaning:{{result["meaning"]}}<br> Usage: {{result["pos"]|posPipe}}<br>
+            <ul>
+                    <div *ngIf="result['sentences']!=null">
+                    <li *ngFor="let sentence of result['sentences'].split(',')">
+                        {{sentence}}
+                    </li>
+                    </div>
+                </ul>
+                <div *ngIf="result['synonyms']!=null" ngClass="display: flex;">
+                        Synonyms:
+                        <ng-container *ngFor="let synonym of result['synonyms'].split(',');let i = index">
+                            <ng-container *ngIf="i===0 && synonym!==word">
+                                        <a [routerLink]="['/results', synonym]">{{synonym}}</a>
+                            </ng-container>
+                            <ng-container *ngIf="i!==0 && synonym!==word">
+                                    <ng-container *ngIf="i===1 && result['synonyms'].split(',')[0]===word">
+                                            <a [routerLink]="['/results', synonym]" >{{synonym}}</a>
+                                    </ng-container>
+                                    <ng-container *ngIf="i===1 && result['synonyms'].split(',')[0]!==word">
+                                            <a [routerLink]="['/results', synonym]">, {{synonym}}</a>
+                                    </ng-container>
+                                    <ng-container *ngIf="i!==1 && result['synonyms'].split(',')[0]!==word">
+                                            <a [routerLink]="['/results', synonym]">, {{synonym}}</a>
+                                    </ng-container>
+                            </ng-container>
+                        </ng-container>
+                </div>
+                
+    </mat-card>    
+</ul>
