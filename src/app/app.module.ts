@@ -19,6 +19,8 @@ import { HistoryTabComponent } from './history-tab/history-tab.component';
 import { BookmarksTabComponent } from './bookmarks-tab/bookmarks-tab.component';
 import { ResultsViewComponent } from './results-view/results-view.component';
 import { DefaultPageComponent } from './default-page/default-page.component';
+import { NgMarqueeModule } from 'ng-marquee';
+import { TickerComponent } from './ticker/ticker.component';
  
  
 let config = new AuthServiceConfig([
@@ -42,9 +44,11 @@ export function provideConfig() {
     HistoryTabComponent,
     BookmarksTabComponent,
     ResultsViewComponent,
-    DefaultPageComponent  
+    DefaultPageComponent,
+    TickerComponent  
   ],
   imports: [
+    NgMarqueeModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,

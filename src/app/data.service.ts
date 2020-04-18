@@ -20,6 +20,7 @@ export class DataService{
   private REST_API_SERVER_LIST = "http://localhost:3001/words";
 
   private FIREBASE_SERVER = "https://dictionary-bea35.firebaseio.com/words.json";
+  private FIREBASE_SERVER_GRE = "https://dictionary-bea35.firebaseio.com/gre_words.json";
   private FIREBASE_SERVER_USER_HISTORY = "https://dictionary-bea35.firebaseio.com/user_history.json";
   private FIREBASE_SERVER_USER_BOOKMARKS = "https://dictionary-bea35.firebaseio.com/user_bookmarks.json";
   word_list:any = []
@@ -29,11 +30,6 @@ export class DataService{
     this.httpClient.get('assets/words.txt', {responseType: 'json'})
           .subscribe(data => {this.word_list = data;});
     console.log("word list");
-    
-    
-
-    
-
   }
   
   public signIn(){
@@ -61,6 +57,10 @@ export class DataService{
     const startsWithN = this.word_list.filter((word) => word.startsWith(str));
     console.log(startsWithN);
     return startsWithN;
+  }
+
+  public sendGetGRERequest(){
+    return this.httpClient.get(this.FIREBASE_SERVER_GRE+"?orderBy=\"word\"");
   }
 
   public sendGetRequest(word:string){
