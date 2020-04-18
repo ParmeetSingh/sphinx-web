@@ -1,0 +1,7 @@
+
+<mat-card class="example-card">
+    <a style="display:inline-block">Trending words</a>  
+    <ng-marquee [stopOnHover]="true" duration="70s">
+        <mark *ngFor="let word of ticker"><a [routerLink]="['/results', word]">{{word}}</a></mark>            
+    </ng-marquee>    
+</mat-card>  

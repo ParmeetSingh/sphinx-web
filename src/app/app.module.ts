@@ -21,6 +21,8 @@ import { ResultsViewComponent } from './results-view/results-view.component';
 import { DefaultPageComponent } from './default-page/default-page.component';
 import { NgMarqueeModule } from 'ng-marquee';
 import { TickerComponent } from './ticker/ticker.component';
+import { GreWordsComponent } from './gre-words/gre-words.component';
+import { AdsenseModule } from 'ng2-adsense';
  
  
 let config = new AuthServiceConfig([
@@ -45,7 +47,8 @@ export function provideConfig() {
     BookmarksTabComponent,
     ResultsViewComponent,
     DefaultPageComponent,
-    TickerComponent  
+    TickerComponent,
+    GreWordsComponent  
   ],
   imports: [
     NgMarqueeModule,
@@ -56,6 +59,10 @@ export function provideConfig() {
     MaterialModule,
     ReactiveFormsModule,
     SocialLoginModule,
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-8019431067697934', //replace with your client from google adsense
+      adSlot: 1234567891 //replace with your slot from google adsense
+    }),
     RouterModule.forRoot([
       { path: "default", component: DefaultPageComponent},
       {
@@ -65,6 +72,7 @@ export function provideConfig() {
       },
       { path: "history", component: HistoryTabComponent },
       { path: "bookmarks", component: BookmarksTabComponent },
+      { path: "gre-words", component: GreWordsComponent },
       { path: "results/:word", component: ResultsViewComponent },
       { path: '**', component: DefaultPageComponent }      
     ])
