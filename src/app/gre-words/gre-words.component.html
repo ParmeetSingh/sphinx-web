@@ -1,1 +1,12 @@
-<p>gre-words works!</p>
+<div style="text-align:center">
+    <table class="table">
+      <tbody>
+        <tr *ngFor="let item of collection.data | paginate: config">
+            <mat-card class="example-card"><td><a [routerLink]="['/results', item.value]">{{item.value}}</a></td></mat-card>            
+        </tr>
+      </tbody>
+    </table>
+  
+    <mat-card class="example-card"><pagination-controls (pageChange)="pageChanged($event)"></pagination-controls></mat-card>
+  
+  </div>

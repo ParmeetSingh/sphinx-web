@@ -6,8 +6,8 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialModule} from './material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 import { PosPipe } from './search-bar/custom-pipe';
 import { SynonymPipe } from './search-bar/custom-pipe-filter-word';
 import { RouterModule } from '@angular/router';
@@ -22,7 +22,7 @@ import { DefaultPageComponent } from './default-page/default-page.component';
 import { NgMarqueeModule } from 'ng-marquee';
 import { TickerComponent } from './ticker/ticker.component';
 import { GreWordsComponent } from './gre-words/gre-words.component';
-import { AdsenseModule } from 'ng2-adsense';
+import { NgxPaginationModule } from 'ngx-pagination';
  
  
 let config = new AuthServiceConfig([
@@ -48,7 +48,7 @@ export function provideConfig() {
     ResultsViewComponent,
     DefaultPageComponent,
     TickerComponent,
-    GreWordsComponent  
+    GreWordsComponent
   ],
   imports: [
     NgMarqueeModule,
@@ -59,10 +59,7 @@ export function provideConfig() {
     MaterialModule,
     ReactiveFormsModule,
     SocialLoginModule,
-    AdsenseModule.forRoot({
-      adClient: 'ca-pub-8019431067697934', //replace with your client from google adsense
-      adSlot: 1234567891 //replace with your slot from google adsense
-    }),
+    NgxPaginationModule,
     RouterModule.forRoot([
       { path: "default", component: DefaultPageComponent},
       {

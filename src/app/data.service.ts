@@ -158,5 +158,9 @@ export class DataService{
     console.log("searched for word parmeet")
     this.searchWord.next(word);
   }
+
+  public getGREWords(): Observable<any> {
+    return this.httpClient.get("./assets/gre_words.csv", {responseType: 'text'});
+  }
   
 }
